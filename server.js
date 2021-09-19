@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-
+const apiRoutes = require('./routes/apiRoutes');
 const sequelize = require('./config/connection');
 
 // Heroku 
@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// routes(app);
+apiRoutes(app);
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {

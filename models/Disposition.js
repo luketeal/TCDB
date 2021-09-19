@@ -18,8 +18,8 @@ Disposition.init(
       allowNull: false,
     },
     disposition: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     badge_id: {
         type: DataTypes.STRING,
