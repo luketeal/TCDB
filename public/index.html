@@ -18,7 +18,7 @@
           <p class="navbar-brand mb-1">TCDB</p>
           
             <div class="d-flex">
-              <button class="btn btn-outline-success" type="button">See Table</button>
+              <button class="btn btn-outline-success" type="button" id="switch-view">Show Disposition Table</button>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@
     
 
     <!-- Input Form -->
-    <form class="container">
+    <form class="container" id="form-container">
         <div class="row justify-content-center mb-3">
           <label for="badgeid" class="col-sm-2 col-form-label">Badge ID</label>
           <div class="col-sm-6">
@@ -43,7 +43,10 @@
         <div class="row justify-content-center mb-3">
           <label for="disposition" class="col-sm-2 col-form-label">Disposition</label>
           <div class="col-sm-6">
-            <input class="form-control" type="text" placeholder="Disposition">
+            <select class="form-select">
+              <option value="true">Accept</option>
+              <option value="false">Reject</option>
+            </select>
           </div>
         </div>
         <div class="row justify-content-center mb-3">
@@ -52,7 +55,7 @@
     </form>
 
       <!-- Table Display -->
-    <div class="container">
+    <div class="container d-none" id="table-container">
       <table class="table">
         <thead>
           <tr>
@@ -83,6 +86,8 @@
     
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
+    
+    <!-- UI JS -->
+    <script src="js/index.js"></script>
   </body>
 </html>
