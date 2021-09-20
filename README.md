@@ -11,6 +11,21 @@ This is a simple part disposition tracker using node, express, and sequelize.  I
 ## The Database
 
 * there are two tables, one for the user and badge id and one for the part number and disposition with the badge id as a foreign key relationship to the user table
+
+```
+    
+|:--------users-------:|                      |:------dispositions------:|       
+|   column   |   type  |                      |    column   |    type    |
+|:----------:|:-------:|                      |:-----------:|:----------:|
+|     id     |   int   |                      |      id     |     int    |
+| first_name | varchar |                      | part_number |   varchar  |
+|  last_name | varchar |                      | disposition | tinyint(1) |
+|  badge_id  |   int   |<one-------------many>|   badge_id  |     int    |
+                        ON DELETE = NO ACTION
+                        ON UPDATE = CASCADE
+```
+
+
 * users are pre-seeded into the database to demonstrate functionality.  Below are the available users.
 
 ```
