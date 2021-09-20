@@ -22,7 +22,7 @@ User.init(
         allowNull: false,
     },
     badge_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         unique: true,
     }
