@@ -6,7 +6,6 @@ const dispositionEl = document.getElementById('disposition');
 const BadgeIDEl = document.getElementById('badge-id');
 const partNumberEl = document.getElementById('part-number');
 
-
 let displayForm = true;
 
 switchBtn.addEventListener('click', (event) => {
@@ -14,7 +13,10 @@ switchBtn.addEventListener('click', (event) => {
 
         fetch('/api/dispositions')
         .then((res) => {
-            return res.json();
+            if(res.status === 500) {
+                alert('Server Error')
+                throw new Error ('Server Error')
+            } else {return res.json()}
         })
         .then((dispositions) => {
             dispositionList.innerHTML = ''
@@ -33,12 +35,14 @@ switchBtn.addEventListener('click', (event) => {
                 cell3.innerHTML = disposition.user.first_name + " " + disposition.user.last_name
               }
             )
+            displayForm = false
+            formContainer.classList.add('d-none')
+            tableContainer.classList.remove('d-none')
+            switchBtn.innerText = 'Show Disposition Form'
         })
-
-        displayForm = false
-        formContainer.classList.add('d-none')
-        tableContainer.classList.remove('d-none')
-        switchBtn.innerText = 'Show Disposition Form'
+        .catch( (error) => {
+            console.log(error)
+        })
     } else {
         displayForm = true
         formContainer.classList.remove('d-none')
@@ -60,15 +64,18 @@ formContainer.addEventListener('submit', (event) => {
         method: 'POST',
         body: JSON.stringify(disposition),
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         }
     })
-    .then(() => {
-        alert('Disposition Added')
+    .then((res) => {
+        if(res.status === 400) {
+            alert('Bad Request')
+        } else (alert('Disposition Added'))
     })
     .then (()=> {
     partNumberEl.value = ''
     BadgeIDEl.value = ''
     dispositionEl.value = 'true'
     })
+    
 })
