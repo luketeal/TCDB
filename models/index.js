@@ -2,8 +2,8 @@ const User = require('./User');
 const Disposition = require('./Disposition');
 
 User.hasMany(Disposition, {
-    foreignKey: 'badge_id',
-    sourceKey: 'badge_id'
+    onDelete: 'NO ACTION',
+    onUpdate: 'CASCADE'
 });
 
 Disposition.belongsTo(User, {
