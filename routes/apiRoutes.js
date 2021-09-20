@@ -19,11 +19,6 @@ function apiRoutes(app) {
         } catch (err) {
             res.status(500).json(err)
         }
-
-        // Disposition.findAll({include: User})
-        // .then(dispositions => {
-        //     res.send(dispositions)
-        // })
     })
 }
 
