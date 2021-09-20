@@ -16,7 +16,8 @@ switchBtn.addEventListener('click', (event) => {
             if(res.status === 500) {
                 alert('Server Error')
                 throw new Error ('Server Error')
-            } else {return res.json()}
+            } 
+            return res.json()
         })
         .then((dispositions) => {
             dispositionList.innerHTML = ''
