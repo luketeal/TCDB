@@ -41,5 +41,6 @@ switchBtn.addEventListener('click', (event) => {
         formContainer.classList.remove('d-none');
         tableContainer.classList.add('d-none');
         switchBtn.innerText = 'Show Disposition Table'
+        dispostionList.innerHTML = ''
     }
 })
