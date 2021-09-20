@@ -61,6 +61,10 @@ formContainer.addEventListener('submit', (event) => {
         disposition: dispositionEl.value,
     }
 
+    if(disposition.part_number === '') {
+        disposition.part_number = null
+    }
+
     fetch('/api/disposition', {
         method: 'POST',
         body: JSON.stringify(disposition),
