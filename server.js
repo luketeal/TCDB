@@ -3,7 +3,7 @@ const path = require('path');
 const apiRoutes = require('./routes/apiRoutes');
 const sequelize = require('./config/connection');
 
-// Heroku 
+// for Heroku 
 const PORT = process.env.PORT || 3000;
 
 // express returns an Object
@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// use api routes
 apiRoutes(app);
 
 // sync sequelize models to the database, then turn on the server

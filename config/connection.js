@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 
 let sequelize;
-
+// set up jawsDB for mysql database to be used on heroku
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
