@@ -20,7 +20,7 @@ This is a simple part disposition tracker using node, express, and sequelize.  I
 |     id     |   int   |                      |      id     |     int    |
 | first_name | varchar |                      | part_number |   varchar  |
 |  last_name | varchar |                      | disposition | tinyint(1) |
-|  badge_id  |   int   |<one-------------many>|   badge_id  |     int    |
+|  badge_id  |   int   |<one-----to------many>|   badge_id  |     int    |
                         ON DELETE = NO ACTION
                         ON UPDATE = CASCADE
 ```
@@ -50,3 +50,7 @@ This is a simple part disposition tracker using node, express, and sequelize.  I
     badge_id: 423456
   },
 ```
+
+## Future Development
+* split ui up so that is with react based components instead of all on one page with display none attributes
+* add functionality to add/update users
