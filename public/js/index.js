@@ -2,6 +2,9 @@ const switchBtn = document.getElementById('switch-view');
 const formContainer = document.getElementById('form-container');
 const tableContainer = document.getElementById('table-container');
 const dispositionList = document.getElementById('disposition-list');
+const dispositionEl = document.getElementById('disposition');
+const BadgeIDEl = document.getElementById('badge-id');
+const partNumberEl = document.getElementById('part-number');
 
 
 let displayForm = true;
@@ -27,20 +30,45 @@ switchBtn.addEventListener('click', (event) => {
                     disposition.disposition = "Reject"
                 }
                 cell2.innerHTML = disposition.disposition;
-                cell3.innerHTML = disposition.user.first_name + " " + disposition.user.last_name;
+                cell3.innerHTML = disposition.user.first_name + " " + disposition.user.last_name
               }
             )
         })
 
         displayForm = false
-        formContainer.classList.add('d-none');
-        tableContainer.classList.remove('d-none');
+        formContainer.classList.add('d-none')
+        tableContainer.classList.remove('d-none')
         switchBtn.innerText = 'Show Disposition Form'
     } else {
         displayForm = true
-        formContainer.classList.remove('d-none');
-        tableContainer.classList.add('d-none');
+        formContainer.classList.remove('d-none')
+        tableContainer.classList.add('d-none')
         switchBtn.innerText = 'Show Disposition Table'
         dispositionList.innerHTML = ''
     }
+})
+
+formContainer.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let disposition = {
+        part_number: partNumberEl.value,
+        badge_id: BadgeIDEl.value,
+        disposition: dispositionEl.value,
+    }
+
+    fetch('/api/disposition', {
+        method: 'POST',
+        body: JSON.stringify(disposition),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    })
+    .then(() => {
+        alert('Disposition Added')
+    })
+    .then (()=> {
+    partNumberEl.value = ''
+    BadgeIDEl.value = ''
+    dispositionEl.value = 'true'
+    })
 })
