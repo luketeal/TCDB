@@ -1,7 +1,7 @@
 const switchBtn = document.getElementById('switch-view');
 const formContainer = document.getElementById('form-container');
 const tableContainer = document.getElementById('table-container');
-const dispostionList = document.getElementById('disposition-list');
+const dispositionList = document.getElementById('disposition-list');
 
 
 let displayForm = true;
@@ -14,9 +14,9 @@ switchBtn.addEventListener('click', (event) => {
             return res.json();
         })
         .then((dispositions) => {
-            dispostionList.innerHTML = ''
+            dispositionList.innerHTML = ''
             dispositions.forEach((disposition) => {
-                let row = dispostionList.insertRow(0);
+                let row = dispositionList.insertRow(0);
                 let cell1 = row.insertCell(0);
                 let cell2 = row.insertCell(1);
                 let cell3 = row.insertCell(2);
@@ -41,6 +41,6 @@ switchBtn.addEventListener('click', (event) => {
         formContainer.classList.remove('d-none');
         tableContainer.classList.add('d-none');
         switchBtn.innerText = 'Show Disposition Table'
-        dispostionList.innerHTML = ''
+        dispositionList.innerHTML = ''
     }
 })
