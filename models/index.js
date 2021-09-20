@@ -1,6 +1,7 @@
 const User = require('./User');
 const Disposition = require('./Disposition');
 
+// set up associations
 User.hasMany(Disposition, {
     foreignKey: 'badge_id',
     onDelete: 'NO ACTION',
