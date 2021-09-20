@@ -21,6 +21,11 @@ switchBtn.addEventListener('click', (event) => {
                 let cell2 = row.insertCell(1);
                 let cell3 = row.insertCell(2);
                 cell1.innerHTML = disposition.part_number;
+                if(disposition.disposition) {
+                    disposition.disposition = "Accept"
+                } else {
+                    disposition.disposition = "Reject"
+                }
                 cell2.innerHTML = disposition.disposition;
                 cell3.innerHTML = disposition.user.first_name + " " + disposition.user.last_name;
               }
