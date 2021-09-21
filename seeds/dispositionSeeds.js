@@ -1,4 +1,4 @@
-const { Disposition } = require('../models');
+const { Disposition } = require('../models')
 
 const dispositionData = [
   {
@@ -31,8 +31,8 @@ const dispositionData = [
     disposition: true,
     badge_id: 223456
   },
-];
+]
 
-const seedDispositions = () => Disposition.bulkCreate(dispositionData);
+const seedDispositions = () => Disposition.bulkCreate(dispositionData)
 
-module.exports = seedDispositions;
+module.exports = seedDispositions

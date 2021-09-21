@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User } = require('../models')
 
 const userData = [
   {
@@ -21,8 +21,8 @@ const userData = [
     last_name: 'Pond',
     badge_id: 423456
   },
-];
+]
 
-const seedUsers = () => User.bulkCreate(userData);
+const seedUsers = () => User.bulkCreate(userData)
 
-module.exports = seedUsers;
+module.exports = seedUsers
