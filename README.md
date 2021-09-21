@@ -52,7 +52,7 @@ This is a simple part disposition tracker using node, express, and sequelize.  I
 ```
 
 ## Considerations for Future Development
-* split ui up so that is accessible from separate user interfaces. The user who is adding the data is likely not the user that is viewing the data.
+* split ui up so that is accessible from completely separate user interfaces. The user who is adding the data is likely not the user that is viewing the data.
 * update api to send only a certain number of records (say 20) at a time and paginate the ui - this database would get very large very fast and become unusable
-* update ui to include filter/search terms
-* integrate this into existing database - these tables have certain assumptions about how the data is used.  For example, it assumes that all users have badge id's.  Is this true? This solution also does not anticipate that the data will change in type (if badge id includes characters down the line or if there becomes another option for the part disposition, this will create conflicts - the current approach does not allow for this flexibility).  Integration should also account for the reality that the part number probably comes from a separate table which may be associated with an assembly table or job table (and so on) - these tables need to be accounted and associate with the disposition table appropriately
+* update ui to include filter/search fields
+* integrate this into an existing database. These tables have certain assumptions about how the data is used.  For example, it assumes that all users have badge id's.  Is this true? This solution also does not anticipate that the data will change in type (if badge id includes characters down the line or if there becomes another option for the part disposition, this could create conflicts - the current approach does not allow for this flexibility).  Integration should consider that the part number probably comes from a separate table which may be associated with an assembly table or job table (and so on) - these tables need to be accounted for and associate with the disposition table appropriately
