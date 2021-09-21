@@ -1,12 +1,12 @@
-const switchBtn = document.getElementById('switch-view');
-const formContainer = document.getElementById('form-container');
-const tableContainer = document.getElementById('table-container');
-const dispositionList = document.getElementById('disposition-list');
-const dispositionEl = document.getElementById('disposition');
-const BadgeIDEl = document.getElementById('badge-id');
-const partNumberEl = document.getElementById('part-number');
-// initiate display form variable to handle views
-let displayForm = true;
+const switchBtn = document.getElementById('switch-view')
+const formContainer = document.getElementById('form-container')
+const tableContainer = document.getElementById('table-container')
+const dispositionList = document.getElementById('disposition-list')
+const dispositionEl = document.getElementById('disposition')
+const BadgeIDEl = document.getElementById('badge-id')
+const partNumberEl = document.getElementById('part-number')
+// declare display form variable to handle views
+let displayForm = true
 
 // ------------ switch view --------------------
 switchBtn.addEventListener('click', () => {
@@ -27,17 +27,17 @@ switchBtn.addEventListener('click', () => {
         .then((dispositions) => {
             dispositionList.innerHTML = ''
             dispositions.forEach((disposition) => {
-                let row = dispositionList.insertRow(0);
-                let cell1 = row.insertCell(0);
-                let cell2 = row.insertCell(1);
-                let cell3 = row.insertCell(2);
-                cell1.innerHTML = disposition.part_number;
+                let row = dispositionList.insertRow(0)
+                let cell1 = row.insertCell(0)
+                let cell2 = row.insertCell(1)
+                let cell3 = row.insertCell(2)
+                cell1.innerHTML = disposition.part_number
                 if(disposition.disposition) {
                     disposition.disposition = "Accept"
                 } else {
                     disposition.disposition = "Reject"
                 }
-                cell2.innerHTML = disposition.disposition;
+                cell2.innerHTML = disposition.disposition
                 cell3.innerHTML = disposition.user.first_name + " " + disposition.user.last_name
               }
             )
@@ -63,9 +63,9 @@ switchBtn.addEventListener('click', () => {
     }
 })
 
-// form event listener
+// ---------- form event listener ------------------
 formContainer.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault()
     // create disposition object
     let disposition = {
         part_number: partNumberEl.value,

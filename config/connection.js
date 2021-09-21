@@ -1,12 +1,12 @@
-const Sequelize = require('sequelize');
+const Sequelize = require('sequelize')
 
 // Enable access to .env variables
-require('dotenv').config();
+require('dotenv').config()
 
-let sequelize;
+let sequelize
 // set up jawsDB for mysql database to be used on heroku
 if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL);
+  sequelize = new Sequelize(process.env.JAWSDB_URL)
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -17,7 +17,7 @@ if (process.env.JAWSDB_URL) {
       dialect: 'mysql',
       port: 3306
     }
-  );
+  )
 }
 
-module.exports = sequelize;
+module.exports = sequelize
